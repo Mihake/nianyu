@@ -23,7 +23,7 @@ def get_weather():
   res = requests.get(url).json()
   weather = res['newslist'][0]
   newdate = weather['date']
-  return newdate, weather['week'], weather['weather'], weather['real'], weather['lowest'], weather['highest'], weather['pop'], weather['uv_index'], weather['tips'], 
+  return newdate, weather['week'], weather['weather'], weather['real'], weather['lowest'], weather['highest'], weather['pop'], weather['uv_index'], weather['tips'], weather['windspeed'], weather['windsc'], weather['humidity'], weather['sunrise'], weather['sunset'],
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
@@ -52,7 +52,7 @@ def get_age():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-newdate,week,weather,real,lowest,highest,pop,uv_index,tips = get_weather()
+newdate,week,weather,real,lowest,highest,pop,uv_index,tips,windspeed,windsc,humidity,sunrise,sunset = get_weather()
 data = {
   "love_days":{"value":get_count()},
   "date":{"value":newdate},
@@ -61,7 +61,12 @@ data = {
   "max_temperature": {"value":highest},
   "now_temperature":{"value":real},
   "rain_odds":{"value":pop},
+  "windspeed":{"value":windspeed},
+  "windsc":{"value":windsc},
   "uv_index":{"value":uv_index},
+  "humidity":{"value":humidity},
+  "sunrise":{"value":sunrise},
+  "sunset":{"value":sunset},
   "weather":{"value":weather},
   "weather_tips":{"value":tips},
   "age":{"value":get_age()},
