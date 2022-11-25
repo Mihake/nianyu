@@ -23,7 +23,7 @@ def get_weather():
   res = requests.get(url).json()
   weather = res['newslist'][0]
   newdate = weather['date']
-  return newdate, weather['week'], weather['weather'], weather['real'], weather['lowest'], weather['highest'], weather['pop'], weather['uv_index'], weather['tips'], weather['windspeed'], weather['windsc'], weather['humidity'], weather['sunrise'], weather['sunset'],
+  return newdate, weather['week'], weather['weather'], weather['real'], weather['lowest'], weather['highest'], weather['pcpn'], weather['uv_index'], weather['tips'], weather['windspeed'], weather['windsc'], weather['humidity'], weather['sunrise'], weather['sunset'],
 
 def get_count():
   delta = today - datetime.strptime(start_date, "%Y-%m-%d")
@@ -60,7 +60,7 @@ data = {
   "min_temperature":{"value":lowest,},
   "max_temperature": {"value":highest},
   "now_temperature":{"value":real},
-  "rain_odds":{"value":pop},
+  "rain_fall":{"value":pcpn},
   "windspeed":{"value":windspeed},
   "windsc":{"value":windsc},
   "uv_index":{"value":uv_index},
