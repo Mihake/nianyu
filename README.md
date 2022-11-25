@@ -17,7 +17,7 @@
 ☀️【当前气温：{{now_temperature.DATA}}】
 🌾【风速：{{windspeed.DATA}} km/h】
 🌀【风力：{{windsc.DATA}}】
-💧【降雨概率：{{rain_odds.DATA}}%】
+💧【降雨量：{{rain_fall.DATA}}%】
 🐳【湿度：{{humidity.DATA}}%】
 🌅【日出时间：{{sunrise.DATA}}】
 🍭【今日:{{weather.DATA}}】
