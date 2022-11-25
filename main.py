@@ -52,7 +52,7 @@ def get_age():
 client = WeChatClient(app_id, app_secret)
 
 wm = WeChatMessage(client)
-newdate,week,weather,real,lowest,highest,pop,uv_index,tips,windspeed,windsc,humidity,sunrise,sunset = get_weather()
+newdate,week,weather,real,lowest,highest,pcpn,uv_index,tips,windspeed,windsc,humidity,sunrise,sunset = get_weather()
 data = {
   "love_days":{"value":get_count()},
   "date":{"value":newdate},
@@ -72,6 +72,7 @@ data = {
   "age":{"value":get_age()},
   "birthday":{"value":get_birthday()},
   "words":{"value":get_words()},
+  "rain_odds":{"value":50},
 }
 count = 0
 for user_id in user_ids:
